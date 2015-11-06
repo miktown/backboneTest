@@ -1,0 +1,35 @@
+.npm-debug.log
+tmp
+
+# dependencias descargables #
+#############################
+component.json
+bower_components
+node_modules
+npm-debug.log
+
+
+# version to deploy #
+#####################
+temp
+temp/
+/temp
+
+app
+app/
+/app
+
+src/css/style.min.css
+src/js/app.min.js
+
+# credenciales #
+################
+secret.json
+
+
+# OS generated files #
+######################
+.DS_Store?
+ehthumbs.db
+Icon?
+Thumbs.db

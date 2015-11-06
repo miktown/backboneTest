@@ -1,0 +1,48 @@
+@import 'nib';
+
+grisOscuro = #222
+grisClaro =  #CCC
+azulWp = #0073aa
+body
+	background-color grisClaro
+#ria-informes
+	a:hover,
+	a:active,
+	a:focus
+		outline 0
+		box-shadow none
+
+#app-main-view
+	height: 50px;
+	width: 100%;
+	overflow: hidden;
+	background: grisOscuro
+
+#ria-informes h3
+	color:white;
+
+.ria-menu-item
+	display	inline-block
+	padding 1em
+	background-color white
+	margin .2em 1em
+	box-shadow 0 1px 2px #999
+	min-width 5em
+	text-align center
+	transition: all .5s ease
+	cursor pointer
+	border-radius 0
+	border 1px solid white
+	a
+		color #0073aa
+		text-decoration none
+		display block
+		height 100%
+		width 100%
+	&.active
+		border-radius 8px
+		border 1px solid grisOscuro
+		background-color transparent
+		box-shadow 0 0px 0px #999
+		a
+			color: grisOscuro
