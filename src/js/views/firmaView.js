@@ -21,6 +21,7 @@ module.exports = Backbone.View.extend({
 
 
     render: function() {
+        this.delegateEvents();
         this.$el.html( this.template() );
         jQuery("#ria-informes-content").append(this.$el);
         return this;
