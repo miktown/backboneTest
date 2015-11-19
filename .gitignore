@@ -15,9 +15,7 @@ temp
 temp/
 /temp
 
-app
-app/
-/app
+
 
 src/css/style.min.css
 src/js/app.min.js
