@@ -50,7 +50,7 @@ module.exports =  Backbone.Router.extend({
     // start html5 history for Router #
     Backbone.history.start({
       pushState: true,
-      root: "backboneTest/index.html"
+      root: "backboneTest/"
     });
 
     // generate menu
