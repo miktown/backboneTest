@@ -49,8 +49,8 @@ module.exports =  Backbone.Router.extend({
 
     // start html5 history for Router #
     Backbone.history.start({
-      pushState: true,
-      root: "backboneTest/"
+      pushState: false,
+      root: "backboneTest/index.html"
     });
 
     // generate menu
