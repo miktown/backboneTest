@@ -53,6 +53,9 @@ module.exports =  Backbone.Router.extend({
       root: "backboneTest"
     });
 
+    // fast click
+    AttachFastClick(document.body);
+
     // generate menu
     this.createMenu();
   },
