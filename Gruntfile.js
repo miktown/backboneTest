@@ -88,7 +88,8 @@ module.exports = function(grunt){
 		    files: [
 		      // includes files within path
 		      {expand: true, flatten: true, src: ['temp/css/**'], dest: 'app/css', filter: 'isFile'},
-		      {expand: true, flatten: true, src: ['temp/js/app.min.js'], dest: 'app/js', filter: 'isFile'}
+		      {expand: true, flatten: true, src: ['temp/js/app.min.js'], dest: 'app/js', filter: 'isFile'},
+		      {expand: true, flatten: true, src: ['src/js/mocks/menu.json'], dest: 'app/js/mocks', filter: 'isFile'}
 		    ]
 		  }
 		},
@@ -102,7 +103,7 @@ module.exports = function(grunt){
 
 	// tareas principales
 
-	grunt.registerTask('default',[ 'clean:dev' , 'stylus' , 'browserify' , 'copy:pro' , 'watch:scripts' ]);
+	grunt.registerTask('default',[ 'clean' , 'stylus' , 'browserify' , 'copy:pro' , 'clean:dev' , 'watch:scripts']);
 
 	grunt.task.registerTask('build', [ 'clean:pro', 'stylus' , 'browserify' , 'uglify' , 'copy:pro', 'replace:pro' ]);
 

@@ -1,21 +1,30 @@
 var
-  // menu
+  // deps
     Backbone = require('backbone'),
     _ = require('underscore'),
 
+  // menu
     MenuCollection  = require('../collections/menuItemCollection'),
     MenuModel  = require('../models/menuItem'),
     MenuItemView  = require('../views/menuItemView'),
     MenuView  = require('../views/menuView'),
+
+  // home View
+    HomeView = require('../views/homeView'),
+  // mo View
+    MoView = require('../views/moView'),
+  // mi View
+    FirmaView = require('../views/firmaView'),
+
+  // fast click
     AttachFastClick = require('fastclick');
 
 
 
 
-
+// TO-DO - refactor - esto no va aquí...
 // Backbone Zombies Run !
 // https://lostechies.com/derickbailey/2011/09/15/zombies-run-managing-page-transitions-in-backbone-apps/
-
 Backbone.View.prototype.close = function(){
   this.remove();
   this.unbind();
@@ -24,53 +33,87 @@ Backbone.View.prototype.close = function(){
   }
 };
 
+
+
 module.exports =  Backbone.Router.extend({
 
   routes: {
-    "": "home",
-    "item1"  : "item1",
-    "item2"  : "item2"
+    "":"home",
+    "ruta1":"unaview",
+    "firma":"firmaview"
   },
 
-  count: 0,
-
   initialize: function (options){ // router constructor
-    // the scope
-    var self = this;
+
+    this.informesViews = {}; //init group of views for informes
 
     // start html5 history for Router #
     Backbone.history.start({
       pushState: false,
-      root: "informes/index.html"
+      root: "wanna/index.html"
     });
 
     // generate menu
     this.createMenu();
-
   },
 
-  execute: function() {
+  execute: function(callback,args) {
+    // eliminar las vistas activas de informes
+    this.removeViews(this.informesViews);
+    // ejecutar controlador por rutas
+    callback.apply(this,args);
     // set active to current menuItem.
     this.setMenuItemActive();
   },
 
   home: function (){
-    console.log("home");
+    this.createHomeView();
   },
 
-  item1: function(){
-    console.log("mo");
-
+  unaview: function(){
+    this.createMoView();
   },
 
-  item2: function(){
-    console.log("mi");
+  firmaview: function(){
+    this.createFirmaView();
   },
 
+  createHomeView: function(){
+    this.informesViews.homeView = this.informesViews.homeView || new HomeView();
+    this.informesViews.homeView.render();
+  },
+
+  createMoView: function(){
+    this.informesViews.moView = this.informesViews.moView || new MoView();
+    this.informesViews.moView.render();
+  },
+
+  createFirmaView: function(){
+    this.informesViews.firmaView = this.informesViews.firmaView || new FirmaView();
+    this.informesViews.firmaView.render();
+  },
+
+  /**
+   * Elimina del dom y sus eventos de vistas agrupadas
+   * @param  object groupOfViews [grupo de vistas]
+   * @return void
+   */
+  removeViews: function(groupOfViews){
+    _.each(groupOfViews,function(theView){
+      theView.close();
+    });
+  },
+
+  /**
+   * Crea el menu de navegación
+   * on success setea los estilos
+   * según cuál esté seleccionado
+   * @return void
+   */
   createMenu: function(){
     var self = this;
-    this.menuCollection = new MenuCollection();
-    this.menuView = new MenuView({ collection: this.menuCollection});
+    this.menuCollection = this.menuCollection || new MenuCollection();
+    this.menuView = this.menuView || new MenuView({ collection: this.menuCollection});
     this.menuCollection.fetch({
       success:function(){
         self.setMenuItemActive();
@@ -79,17 +122,8 @@ module.exports =  Backbone.Router.extend({
   },
 
   /**
-   * Start functions in vars
-   * @return void
-   */
-  initView: function (ff){
-    var varName = this.toLowerCaseFirst(ff);
-    this.varName = new ff();
-  },
-
-  /**
    * Set atribute in menu collection.
-   * @return mixed void
+   * @return void
    */
   setMenuItemActive: function(){
     if(this.menuCollection === undefined) return;

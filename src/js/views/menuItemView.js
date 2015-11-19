@@ -1,6 +1,6 @@
 var
-    _ = require('underscore'),
-    Backbone = require('backbone');
+    Backbone = require('backbone'),
+    _ = require('underscore');
 
 module.exports = Backbone.View.extend({
 
@@ -8,7 +8,7 @@ module.exports = Backbone.View.extend({
 
     className: "ria-menu-item",
 
-    template: _.template("<a href='<%= url %>' class='dashicons-before <%= icon %>'> <%= title %></a>"),
+    template: _.template("<a href='<%= url %>' class='dashicons-before'> <%= title %></a>"),
 
     events: {
         "click": "navigateRoute"
