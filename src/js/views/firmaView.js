@@ -34,7 +34,8 @@ module.exports = Backbone.View.extend({
         console.log("click hecho");
     },
 
-    clickTest: function(){
+    clickTest: function(e){
+        e.preventDefault();
         Backbone.app.navigate("", {trigger: true});
         console.log("click hecho");
     }
