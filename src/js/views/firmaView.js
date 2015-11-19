@@ -9,10 +9,11 @@ module.exports = Backbone.View.extend({
 
     className: "informes-section  firmaView",
 
-    template: _.template("<div class='jumbotron'><h1>Hello, bootstrap!</h1><p>...</p><p><a class='btn btn-primary btn-lg' href='#' role='button'>Volver a home</a></p></div>"),
+    template: _.template("<div class='jumbotron'><h1>Hello, bootstrap!</h1><p>...</p><p><a id='returnHome' class='btn btn-primary btn-lg' href='#' role='button'>Volver a home</a></p></div>"),
 
     events: {
-       "click": "clickTest"
+       "click": "clickTest",
+       "click #returnHome": "returnHome"
     },
 
     initialize: function() {
@@ -30,6 +31,11 @@ module.exports = Backbone.View.extend({
     },
 
     clickTest: function(){
+        console.log("click hecho");
+    },
+
+    clickTest: function(){
+        Backbone.app.navigate("", {trigger: true});
         console.log("click hecho");
     }
 
