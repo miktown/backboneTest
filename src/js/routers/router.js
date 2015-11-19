@@ -48,7 +48,10 @@ module.exports =  Backbone.Router.extend({
     this.informesViews = {}; //init group of views for informes
 
     // start html5 history for Router #
-    Backbone.history.start({ pushState: true });
+    Backbone.history.start({
+      pushState: true,
+      root: "backboneTest"
+    });
 
     // generate menu
     this.createMenu();
