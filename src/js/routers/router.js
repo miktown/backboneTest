@@ -15,6 +15,7 @@ var
     MoView = require('../views/moView'),
   // mi View
     FirmaView = require('../views/firmaView'),
+    UrlSignaturit = require('../models/urlSignaturit'),
 
   // fast click
     AttachFastClick = require('fastclick');
@@ -92,7 +93,8 @@ module.exports =  Backbone.Router.extend({
   },
 
   createFirmaView: function(){
-    this.informesViews.firmaView = this.informesViews.firmaView || new FirmaView();
+    this.UrlSignaturitModel = this.UrlSignaturitModel || new UrlSignaturit();
+    this.informesViews.firmaView = this.informesViews.firmaView || new FirmaView({ model: this.UrlSignaturitModel });
     this.informesViews.firmaView.render();
   },
 

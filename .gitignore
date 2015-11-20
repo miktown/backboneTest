@@ -17,6 +17,8 @@ temp/
 
 
 
+.gitignore
+
 src/css/style.min.css
 src/js/app.min.js
 
