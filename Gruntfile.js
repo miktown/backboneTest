@@ -69,7 +69,7 @@ module.exports = function(grunt){
 	      },
 	      my_target: {
 	        files: {
-	          'src/js/app.min.js': ['src/js/app.min.js']
+	          'temp/js/app.min.js': ['temp/js/app.min.js']
 	        }
 	      }
 	    },
@@ -103,7 +103,7 @@ module.exports = function(grunt){
 
 	// tareas principales
 
-	grunt.registerTask('default',[ 'clean' , 'stylus' , 'browserify' , 'copy:pro' , 'clean:dev' , 'watch:scripts']);
+	grunt.registerTask('default',[ 'clean' , 'stylus' , 'browserify' ,'uglify', 'copy:pro' , 'clean:dev' , 'watch:scripts']);
 
 	grunt.task.registerTask('build', [ 'clean:pro', 'stylus' , 'browserify' , 'uglify' , 'copy:pro', 'replace:pro' ]);
 
