@@ -9,6 +9,7 @@ module.exports = Backbone.View.extend({
 
     className: "informes-section moView",
 
+
     template: _.template("<div class='ria-spinner'/><h2>una vista</h2><a id='returnHome' class='btn btn-primary btn-lg' href='#' role='button'>Volver a home</a>"),
 
     events: {

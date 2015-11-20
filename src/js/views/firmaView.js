@@ -9,7 +9,7 @@ module.exports = Backbone.View.extend({
 
     className: "informes-section  firmaView",
 
-    template: _.template('<iframe src="<%= url %>" style="position: relative; top: 0; left: 0; height: 320px; width: 240px" /><a id="returnHome" class="btn btn-primary btn-lg" href="#" role="button">Volver a home</a>'),
+    template: _.template('<iframe src="http://api.sandbox.signaturit.com/v2/templates.json" style="position: relative; top: 0; left: 0; height: 320px; width: 240px" /><a id="returnHome" class="btn btn-primary btn-lg" href="#" role="button">Volver a home</a>'),
 
     events: {
        "click": "clickTest",
@@ -22,7 +22,7 @@ module.exports = Backbone.View.extend({
 
     render: function() {
         this.delegateEvents();
-        this.$el.html( this.template( this.model.toJSON() ));
+        this.$el.html( this.template() );
         jQuery("#ria-informes-content").append(this.$el);
         return this;
     },
