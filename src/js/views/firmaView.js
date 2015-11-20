@@ -9,7 +9,7 @@ module.exports = Backbone.View.extend({
 
     className: "informes-section  firmaView",
 
-    template: _.template("<div class='jumbotron'><h1>Hello, bootstrap!</h1><p>...</p><p><a id='returnHome' class='btn btn-primary btn-lg' href='#' role='button'>Volver a home</a></p></div>"),
+    template: _.template('<iframe src="http://api.sandbox.signaturit.com/v2/templates.json" style="position: relative; top: 0; left: 0; height: 320px; width: 240px" /><a id="returnHome" class="btn btn-primary btn-lg" href="#" role="button">Volver a home</a>'),
 
     events: {
        "click": "clickTest",
@@ -32,10 +32,10 @@ module.exports = Backbone.View.extend({
     },
 
     clickTest: function(){
-        console.log("click hecho");
+        console.log("click hecho en firmaView");
     },
 
-    clickTest: function(e){
+    returnHome: function(e){
         e.preventDefault();
         Backbone.app.navigate("", {trigger: true});
         console.log("click hecho");
