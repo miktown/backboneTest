@@ -40,6 +40,7 @@
     "handlebars": "^3.0.1",
     "jquery": "^2.1.4",
     "moment": "^2.10.2",
+    "normalize-styl": "^3.0.3",
     "spin-js-lite": "0.0.3",
     "underscore": "^1.8.3",
     "validator": "^3.39.0"
