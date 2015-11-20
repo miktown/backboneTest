@@ -9,10 +9,11 @@ module.exports = Backbone.View.extend({
 
     className: "informes-section moView",
 
-    template: _.template("<div class='ria-spinner'/><h2>mooooooo</h2>"),
+    template: _.template("<div class='ria-spinner'/><h2>una vista</h2><a id='returnHome' class='btn btn-primary btn-lg' href='#' role='button'>Volver a home</a>"),
 
     events: {
-       "click": "clickTest"
+       "click": "clickTest",
+       "click #returnHome": "returnHome"
     },
 
     initialize: function() {
@@ -20,6 +21,7 @@ module.exports = Backbone.View.extend({
 
 
     render: function() {
+        this.delegateEvents();
         this.$el.html( this.template() );
         jQuery("#ria-informes-content").append(this.$el);
         return this;
@@ -30,6 +32,12 @@ module.exports = Backbone.View.extend({
     },
 
     clickTest: function(){
+        console.log("click hecho en moView");
+    },
+
+    returnHome: function(e){
+        e.preventDefault();
+        Backbone.app.navigate("", {trigger: true});
         console.log("click hecho");
     }
 

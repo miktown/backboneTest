@@ -15,9 +15,7 @@ temp
 temp/
 /temp
 
-app
-app/
-/app
+
 
 .gitignore
 

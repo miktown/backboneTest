@@ -49,9 +49,12 @@ module.exports =  Backbone.Router.extend({
 
     // start html5 history for Router #
     Backbone.history.start({
-      pushState: false,
-      root: "wanna/index.html"
+      pushState: true,
+      root: "backboneTest/"
     });
+
+    // fast click
+    AttachFastClick(document.body);
 
     // generate menu
     this.createMenu();
