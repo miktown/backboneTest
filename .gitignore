@@ -19,6 +19,8 @@ app
 app/
 /app
 
+.gitignore
+
 src/css/style.min.css
 src/js/app.min.js
 
