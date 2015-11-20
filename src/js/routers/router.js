@@ -50,7 +50,7 @@ module.exports =  Backbone.Router.extend({
     // start html5 history for Router #
     Backbone.history.start({
       pushState: true,
-      root: "backboneTest"
+      root: "backboneTest/"
     });
 
     // fast click
