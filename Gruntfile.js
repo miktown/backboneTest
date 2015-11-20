@@ -89,7 +89,8 @@ module.exports = function(grunt){
 		      // includes files within path
 		      {expand: true, flatten: true, src: ['temp/css/**'], dest: 'app/css', filter: 'isFile'},
 		      {expand: true, flatten: true, src: ['temp/js/app.min.js'], dest: 'app/js', filter: 'isFile'},
-		      {expand: true, flatten: true, src: ['src/js/mocks/menu.json'], dest: 'app/js/mocks', filter: 'isFile'}
+		      {expand: true, flatten: true, src: ['src/js/mocks/menu.json'], dest: 'app/js/mocks', filter: 'isFile'},
+		      {expand: true, flatten: true, src: ['src/js/mocks/sign.json'], dest: 'app/js/mocks', filter: 'isFile'}
 		    ]
 		  }
 		},

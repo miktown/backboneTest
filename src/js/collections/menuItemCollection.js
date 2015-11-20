@@ -5,6 +5,6 @@ var
 module.exports = Backbone.Collection.extend({
 
     model: MenuItemModel,
-    url: "backboneTest/app/js/mocks/menu.json",
+    url: "backboneTest/app/js/mocks/menu.json"
 
 });
