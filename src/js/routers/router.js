@@ -95,9 +95,9 @@ module.exports =  Backbone.Router.extend({
   createFirmaView: function(){
     var self = this;
     this.UrlSignaturitModel = this.UrlSignaturitModel || new UrlSignaturit();
-    this.informesViews.firmaView = this.informesViews.firmaView || new FirmaView({ model: this.UrlSignaturitModel });
-    this.informesViews.firmaView.fetch({
+    this.UrlSignaturitModel.fetch({
       success:function(){
+        self.informesViews.firmaView = this.informesViews.firmaView || new FirmaView({ model: this.UrlSignaturitModel });
         self.informesViews.firmaView.render();
       }
     });
